@@ -108,12 +108,16 @@ function makeorb () {
     750,
     false
     )
+    mySprite.setBounceOnWall(true)
     mySprite.changeScale(0.111, ScaleAnchor.Middle)
     mySprite.setPosition(playa.x, playa.y)
     mySprite.setVelocity(50, 0)
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     makeorb()
+})
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Projectile, function (sprite, otherSprite) {
+    sprites.destroy(otherSprite, effects.fire, 500)
 })
 function randomTilemap () {
     tilemapList = [
