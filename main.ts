@@ -1,5 +1,5 @@
 function makeorb () {
-    mySprite = sprites.create(img`
+    projectiles = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -18,7 +18,7 @@ function makeorb () {
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Projectile)
     animation.runImageAnimation(
-    mySprite,
+    projectiles,
     [img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -108,16 +108,17 @@ function makeorb () {
     750,
     false
     )
-    mySprite.setBounceOnWall(true)
-    mySprite.changeScale(0.111, ScaleAnchor.Middle)
-    mySprite.setPosition(playa.x, playa.y)
-    mySprite.setVelocity(50, 0)
+    projectiles.setFlag(SpriteFlag.DestroyOnWall, true)
+    projectiles.setBounceOnWall(true)
+    projectiles.changeScale(0.111, ScaleAnchor.Middle)
+    projectiles.setPosition(playa.x, playa.y)
+    projectiles.setVelocity(50, 0)
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     makeorb()
 })
 sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Projectile, function (sprite, otherSprite) {
-    sprites.destroy(otherSprite, effects.fire, 500)
+    sprites.destroy(sprite, effects.fire, 500)
 })
 function randomTilemap () {
     tilemapList = [
@@ -130,7 +131,7 @@ function randomTilemap () {
     return tilemapList._pickRandom()
 }
 let tilemapList: tiles.TileMapData[] = []
-let mySprite: Sprite = null
+let projectiles: Sprite = null
 let playa: Sprite = null
 tiles.setCurrentTilemap(randomTilemap())
 playa = sprites.create(img`
