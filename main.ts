@@ -17,9 +17,13 @@ function makeorb () {
         . . . . . . 6 6 6 6 . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Projectile)
-    mySprite.setPosition(playa.x, playa.x)
+    mySprite.changeScale(0.111, ScaleAnchor.Middle)
+    mySprite.setPosition(playa.x, playa.y)
     mySprite.setVelocity(50, 0)
 }
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    makeorb()
+})
 function randomTilemap () {
     tilemapList = [
     tilemap`level1`,
