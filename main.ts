@@ -98,9 +98,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
 function randomTilemap(): tiles.TileMapData {
     tilemapList = [
         tilemap`level1`
-        , tilemap`
-            level2
-        `, tilemap`
+        , tilemap`level2`, tilemap`
             level3
         `, tilemap`
             level4
@@ -203,24 +201,26 @@ animation.runImageAnimation(playa, [img`
             . . . . . f f . . . f f f . . .
         `], 500, true)
 scene.onOverlapTile(SpriteKind.Player, img`
-    d d c c c c c c c c c c c c d d
-    d d c b b b b b b b b b b c d d
-    d d b d d d d d d d d d d b d d
-    d d c c c c c c c c c c c c d d
-    d d c b b b b b b b b b b c d d
-    d d b d d d d d d d d d d b d d
-    d d c c c c c c c c c c c c d d
-    d d c b b b b b b b b b b c d d
-    d d b d d d d d d d d d d b d d
-    d d c c c c c c c c c c c c d d
-    d d c b b b b b b b b b b c d d
-    d d b d d d d d d d d d d b d d
-    d d c c c c c c c c c c c c d d
-    d d c b b b b b b b b b b c d d
-    b b b d d d d d d d d d d b b b
     c c c c c c c c c c c c c c c c
+    b b b d d d d d d d d d d b b b
+    d d c b b b b b b b b b b c d d
+    d d c c c c c c c c c c c c d d
+    d d b d d d d d d d d d d b d d
+    d d c b b b b b b b b b b c d d
+    d d c c c c c c c c c c c c d d
+    d d b d d d d d d d d d d b d d
+    d d c b b b b b b b b b b c d d
+    d d c c c c c c c c c c c c d d
+    d d b d d d d d d d d d d b d d
+    d d c b b b b b b b b b b c d d
+    d d c c c c c c c c c c c c d d
+    d d b d d d d d d d d d d b d d
+    d d c b b b b b b b b b b c d d
+    d d c c c c c c c c c c c c d d
 `, function (sprite: Sprite, location: tiles.Location) {
-
+    let Count: number = 1
+    tiles.setCurrentTilemap(tilemapList[0 + Count])
+    Count += 1
 })
 playa.setStayInScreen(true)
 scene.cameraFollowSprite(playa)
