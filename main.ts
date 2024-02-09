@@ -95,19 +95,14 @@ function makeorb() {
 controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
     makeorb()
 })
-function randomTilemap(): tiles.TileMapData {
+function getTilemap(Level:number): tiles.TileMapData {
     
     tilemapList = [tilemap`level1`,
         tilemap`level2`
-        ,tilemap`
-        level3
-        `, tilemap`
+        ,tilemap`level3`, tilemap`
             level4
-        `, tilemap`
-            level5
-        `]
-    return tilemapList[0]
-    tiles.setCurrentTilemap(tilemapList[0])
+        `, tilemap`level5`]
+    return tilemapList[Level]
 }
 
 let tilemapList : tiles.TileMapData[] = []
@@ -220,7 +215,7 @@ scene.onOverlapTile(SpriteKind.Player, img`
     c b b b b b b b b b b b b b b c
 `, function on_overlap_tile(sprite: Sprite, location: tiles.Location) {
     let Count : number = 1
-    tiles.setCurrentTilemap(tilemapList[0+Count])
+    tiles.setCurrentTilemap(tilemapList[Count])
     Count += 1
 })
 playa.setStayInScreen(true)
