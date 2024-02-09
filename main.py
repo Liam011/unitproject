@@ -104,12 +104,8 @@ controller.A.on_event(ControllerButtonEvent.PRESSED, on_a_pressed)
 
 def randomTilemap():
     global tilemapList
-    tilemapList = [tilemap("""
-            level1
-        """),
-        tilemap("""
-            level2
-        """),
+    tilemapList = [tilemap("""level1"""),
+        tilemap("""level2"""),
         tilemap("""
             level3
         """),
@@ -225,21 +221,21 @@ def on_overlap_tile(sprite, location):
 scene.on_overlap_tile(SpriteKind.player,
     img("""
         d d c c c c c c c c c c c c d d
-            d d c b b b b b b b b b b c d d
-            d d b d d d d d d d d d d b d d
-            d d c c c c c c c c c c c c d d
-            d d c b b b b b b b b b b c d d
-            d d b d d d d d d d d d d b d d
-            d d c c c c c c c c c c c c d d
-            d d c b b b b b b b b b b c d d
-            d d b d d d d d d d d d d b d d
-            d d c c c c c c c c c c c c d d
-            d d c b b b b b b b b b b c d d
-            d d b d d d d d d d d d d b d d
-            d d c c c c c c c c c c c c d d
-            d d c b b b b b b b b b b c d d
-            b b b d d d d d d d d d d b b b
-            c c c c c c c c c c c c c c c c
+        d d c b b b b b b b b b b c d d
+        d d b d d d d d d d d d d b d d
+        d d c c c c c c c c c c c c d d
+        d d c b b b b b b b b b b c d d
+        d d b d d d d d d d d d d b d d
+        d d c c c c c c c c c c c c d d
+        d d c b b b b b b b b b b c d d
+        d d b d d d d d d d d d d b d d
+        d d c c c c c c c c c c c c d d
+        d d c b b b b b b b b b b c d d
+        d d b d d d d d d d d d d b d d
+        d d c c c c c c c c c c c c d d
+        d d c b b b b b b b b b b c d d
+        b b b d d d d d d d d d d b b b
+        c c c c c c c c c c c c c c c c
     """),
     on_overlap_tile)
 

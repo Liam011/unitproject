@@ -97,12 +97,10 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function on_a_pressed() {
 })
 function randomTilemap(): tiles.TileMapData {
     
-    tilemapList = [tilemap`
-            level1
-        `, tilemap`
-            level2
-        `, tilemap`
-            level3
+    tilemapList = [tilemap`level1`,
+        tilemap`level2`
+        ,tilemap`
+        level3
         `, tilemap`
             level4
         `, tilemap`
@@ -115,7 +113,7 @@ function randomTilemap(): tiles.TileMapData {
 let tilemapList : tiles.TileMapData[] = []
 let mySprite : Sprite = null
 let playa : Sprite = null
-tiles.setCurrentTilemap(randomTilemap())
+tiles.setCurrentTilemap(tilemapList[0])
 playa = sprites.create(img`
         . . . . . . f f f f f f . . . .
                     . . . . f f e e e e f 2 f . . .
@@ -204,24 +202,26 @@ animation.runImageAnimation(playa, [img`
                         . . . . . f f . . . f f f . . .
         `], 500, true)
 scene.onOverlapTile(SpriteKind.Player, img`
-        d d c c c c c c c c c c c c d d
-            d d c b b b b b b b b b b c d d
-            d d b d d d d d d d d d d b d d
-            d d c c c c c c c c c c c c d d
-            d d c b b b b b b b b b b c d d
-            d d b d d d d d d d d d d b d d
-            d d c c c c c c c c c c c c d d
-            d d c b b b b b b b b b b c d d
-            d d b d d d d d d d d d d b d d
-            d d c c c c c c c c c c c c d d
-            d d c b b b b b b b b b b c d d
-            d d b d d d d d d d d d d b d d
-            d d c c c c c c c c c c c c d d
-            d d c b b b b b b b b b b c d d
-            b b b d d d d d d d d d d b b b
-            c c c c c c c c c c c c c c c c
-    `, function on_overlap_tile(sprite: Sprite, location: tiles.Location) {
-    
+    c c c c c c c c c c c c c c c c
+    c c c c c c c c c c c b b b b c
+    c c c c c c c c c c c b b b b c
+    c c c c c c c c c c c b b b b c
+    c c c c c c b b b b c b b b b c
+    c c c c c c b b b b c b b b b c
+    c c c c c c b b b b c b b b b c
+    c c c c c c b b b b c b b b b c
+    c b b b b c b b b b c b b b b c
+    c b b b b c b b b b c d d d d c
+    c b b b b c b b b b b b b b b c
+    c b b b b c d d d d b b b b b c
+    c b b b b c b b b b b b b b b c
+    c b b b b b b b b b b b b b b c
+    c d d d d b b b b b b b b b b c
+    c b b b b b b b b b b b b b b c
+`, function on_overlap_tile(sprite: Sprite, location: tiles.Location) {
+    let Count : number = 1
+    tiles.setCurrentTilemap(tilemapList[0+Count])
+    Count += 1
 })
 playa.setStayInScreen(true)
 scene.cameraFollowSprite(playa)
