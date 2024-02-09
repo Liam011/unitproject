@@ -246,5 +246,3 @@ scene.on_overlap_tile(SpriteKind.player,
 playa.set_stay_in_screen(True)
 scene.camera_follow_sprite(playa)
 controller.move_sprite(playa)
-statusbar = statusbars.create(4, 10, StatusBarKind.health)
-statusbar.attach_to_sprite(playa)

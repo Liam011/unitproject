@@ -226,5 +226,3 @@ scene.onOverlapTile(SpriteKind.Player, img`
 playa.setStayInScreen(true)
 scene.cameraFollowSprite(playa)
 controller.moveSprite(playa)
-let statusbar = statusbars.create(4, 10, StatusBarKind.Health)
-statusbar.attachToSprite(playa)
